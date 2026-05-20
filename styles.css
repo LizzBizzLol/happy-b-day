@@ -42,13 +42,32 @@ body {
 body::before {
   position: absolute;
   z-index: 0;
-  inset: 72vh 0 0;
-  min-height: 28vh;
+  inset: 67vh 0 0;
+  min-height: 33vh;
   content: "";
   background:
-    linear-gradient(45deg, rgba(36, 84, 56, 0.55) 25%, transparent 25%) 0 0 / 18px 18px,
-    linear-gradient(-45deg, rgba(255, 241, 189, 0.12) 25%, transparent 25%) 0 0 / 22px 22px;
+    linear-gradient(180deg, rgba(255, 231, 145, 0.18) 0 2px, transparent 2px 100%) 0 18px / 100% 58px,
+    radial-gradient(circle at 20px 28px, rgba(255, 231, 145, 0.2) 0 3px, transparent 4px) 0 0 / 128px 76px,
+    linear-gradient(90deg, rgba(31, 102, 58, 0.28) 0 8px, transparent 8px 70px) 0 0 / 70px 48px,
+    linear-gradient(90deg, rgba(255, 218, 110, 0.1) 0 6px, transparent 6px 96px) 32px 24px / 96px 72px,
+    linear-gradient(180deg, #4f9a56 0%, #347a47 54%, #28633d 100%);
   image-rendering: pixelated;
+  pointer-events: none;
+}
+
+body::after {
+  position: absolute;
+  z-index: 0;
+  inset: 61vh 0 auto;
+  height: 96px;
+  content: "";
+  background:
+    radial-gradient(ellipse 180px 64px at 12% 80%, #367a47 0 58%, transparent 59%),
+    radial-gradient(ellipse 240px 74px at 38% 86%, #2f6f43 0 60%, transparent 61%),
+    radial-gradient(ellipse 210px 68px at 68% 82%, #3d8550 0 59%, transparent 60%),
+    radial-gradient(ellipse 170px 58px at 91% 88%, #2d673f 0 60%, transparent 61%);
+  image-rendering: pixelated;
+  opacity: 0.82;
   pointer-events: none;
 }
 
@@ -78,12 +97,14 @@ body::before {
 .cloud-1 {
   top: 11%;
   left: 8%;
+  animation: drift 22s ease-in-out infinite;
 }
 
 .cloud-2 {
   top: 22%;
   right: 15%;
   transform: scale(0.75);
+  animation: drift-small 28s ease-in-out infinite;
 }
 
 .firefly {
@@ -512,6 +533,18 @@ button:active {
 @keyframes float {
   50% {
     transform: translate(14px, -18px);
+  }
+}
+
+@keyframes drift {
+  50% {
+    transform: translateX(34px);
+  }
+}
+
+@keyframes drift-small {
+  50% {
+    transform: translateX(-28px) scale(0.75);
   }
 }
 
