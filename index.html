@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Secret birthday quest card for Savely: Day 1, Year 1."
+    />
+    <title>Day 1, Year 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true">
+      <span class="firefly firefly-1"></span>
+      <span class="firefly firefly-2"></span>
+      <span class="firefly firefly-3"></span>
+      <span class="firefly firefly-4"></span>
+      <span class="cloud cloud-1"></span>
+      <span class="cloud cloud-2"></span>
+    </div>
+
+    <main class="page-shell">
+      <section class="loading-card" id="loadingCard" aria-live="polite">
+        <p class="tiny-label">Quest item discovered.</p>
+        <div class="loading-bar" aria-hidden="true">
+          <span></span>
+        </div>
+      </section>
+
+      <section class="hero game-window" aria-labelledby="itemTitle">
+        <div class="window-header">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="hero-grid">
+          <div class="item-visual" aria-label="Pixel perfume bottle">
+            <div class="perfume-bottle">
+              <span class="cap"></span>
+              <span class="neck"></span>
+              <span class="glass"></span>
+              <span class="shine"></span>
+              <span class="label">Y1</span>
+            </div>
+            <div class="pixel-shadow"></div>
+          </div>
+
+          <div class="hero-copy">
+            <p class="tiny-label">Rare consumable item</p>
+            <h1 id="itemTitle">Day 1, Year 1</h1>
+            <p class="subtitle">Handcrafted fragrance</p>
+            <p class="birthday-message">
+              С днём Рождения, Савеля! Ты разблокировал уникальное достижение!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="item-card game-panel" aria-labelledby="descriptionTitle">
+        <h2 id="descriptionTitle">Item description</h2>
+        <dl class="stats">
+          <div>
+            <dt>Type</dt>
+            <dd>Rare consumable</dd>
+          </div>
+          <div>
+            <dt>Origin</dt>
+            <dd>Warm evening farm route</dd>
+          </div>
+        </dl>
+        <div class="effects">
+          <p>Effects:</p>
+          <ul>
+            <li>+10 nostalgia</li>
+            <li>+5 motivation</li>
+            <li>restores energy after difficult school days</li>
+          </ul>
+        </div>
+        <p class="description">
+          A rare handcrafted fragrance inspired by a quiet first day, summer
+          grass, pixel sunsets, and the feeling that a new save file can still
+          become legendary.
+        </p>
+      </section>
+
+      <section class="achievements" aria-label="Achievements">
+        <article class="achievement game-panel">
+          <span class="badge">🏆</span>
+          <div>
+            <p>Achievement unlocked</p>
+            <strong>Future Farmer</strong>
+          </div>
+        </article>
+        <article class="achievement game-panel">
+          <span class="badge">✦</span>
+          <div>
+            <p>Relationship bonus</p>
+            <strong>+15 with Haley</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="quest game-panel" aria-labelledby="questTitle">
+        <h2 id="questTitle">Secret reward</h2>
+        <p class="quest-question">
+          Какой персонаж больше всех заинтересовал тебя в игре?
+        </p>
+        <form class="code-form" id="codeForm">
+          <label for="codeInput">Enter answer</label>
+          <div class="input-row">
+            <input
+              id="codeInput"
+              name="code"
+              type="text"
+              autocomplete="off"
+              placeholder="Type here..."
+            />
+            <button type="submit">Unlock</button>
+          </div>
+          <p class="form-message" id="formMessage" role="status"></p>
+        </form>
+
+        <div class="reward" id="reward" hidden>
+          <div class="ticket" aria-label="Pixel Steam Quest Ticket">
+            <span class="smoke smoke-1"></span>
+            <span class="smoke smoke-2"></span>
+            <span class="smoke smoke-3"></span>
+            <div class="ticket-inner">
+              <p>STEAM</p>
+              <strong>QUEST TICKET</strong>
+              <span>redeem with quest givers</span>
+            </div>
+          </div>
+          <div class="reward-copy">
+            <p class="tiny-label">Reward unlocked</p>
+            <h2>Steam Quest Ticket</h2>
+            <p>Contact the quest givers to redeem your reward.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

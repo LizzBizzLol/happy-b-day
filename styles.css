@@ -1,0 +1,573 @@
+:root {
+  --sky-top: #534b82;
+  --sky-mid: #c1746a;
+  --sky-low: #f2b46d;
+  --grass: #3f7f4a;
+  --grass-dark: #245438;
+  --wood: #7a4a2a;
+  --wood-dark: #4c2f21;
+  --cream: #fff1bd;
+  --paper: #ffe5a8;
+  --ink: #3a2418;
+  --accent: #e8a83a;
+  --berry: #b84f5a;
+  --panel-shadow: #2d1c22;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+html {
+  min-height: 100%;
+  background: var(--grass-dark);
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: "Pixelify Sans", "Trebuchet MS", sans-serif;
+  background:
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-mid) 43%, var(--sky-low) 72%, var(--grass) 72%),
+    var(--grass);
+  overflow-x: hidden;
+}
+
+body::before {
+  position: fixed;
+  inset: auto 0 0;
+  height: 28vh;
+  content: "";
+  background:
+    linear-gradient(45deg, rgba(36, 84, 56, 0.55) 25%, transparent 25%) 0 0 / 18px 18px,
+    linear-gradient(-45deg, rgba(255, 241, 189, 0.12) 25%, transparent 25%) 0 0 / 22px 22px;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.sky {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cloud,
+.firefly {
+  position: absolute;
+  display: block;
+  image-rendering: pixelated;
+}
+
+.cloud {
+  width: 96px;
+  height: 28px;
+  background: rgba(255, 230, 182, 0.42);
+  box-shadow:
+    24px -12px 0 rgba(255, 230, 182, 0.42),
+    54px -4px 0 rgba(255, 230, 182, 0.42);
+}
+
+.cloud-1 {
+  top: 11%;
+  left: 8%;
+}
+
+.cloud-2 {
+  top: 22%;
+  right: 15%;
+  transform: scale(0.75);
+}
+
+.firefly {
+  width: 7px;
+  height: 7px;
+  background: #fff3a8;
+  box-shadow: 0 0 14px #fff3a8;
+  animation: float 5s ease-in-out infinite;
+}
+
+.firefly-1 {
+  top: 18%;
+  left: 18%;
+}
+
+.firefly-2 {
+  top: 42%;
+  right: 20%;
+  animation-delay: -1.4s;
+}
+
+.firefly-3 {
+  top: 64%;
+  left: 12%;
+  animation-delay: -2.1s;
+}
+
+.firefly-4 {
+  top: 36%;
+  left: 72%;
+  animation-delay: -3.2s;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  width: min(920px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 28px 0 48px;
+}
+
+.loading-card,
+.game-window,
+.game-panel {
+  border: 4px solid var(--wood-dark);
+  background: var(--paper);
+  box-shadow:
+    0 0 0 4px var(--wood),
+    8px 8px 0 var(--panel-shadow);
+}
+
+.loading-card {
+  max-width: 360px;
+  margin: 0 auto 22px;
+  padding: 14px;
+  text-align: center;
+  transition: opacity 350ms ease, transform 350ms ease;
+}
+
+.loading-card.is-hidden {
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+
+.tiny-label,
+button,
+label {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.loading-bar {
+  height: 14px;
+  margin-top: 12px;
+  border: 3px solid var(--wood-dark);
+  background: #f7c776;
+}
+
+.loading-bar span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(90deg, #78b86f 0 12px, #58995f 12px 24px);
+  transform-origin: left;
+  animation: load 1.2s steps(8) both;
+}
+
+.hero {
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+.window-header {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 4px solid var(--wood-dark);
+  background: var(--wood);
+}
+
+.window-header span {
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--wood-dark);
+  background: var(--accent);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 26px;
+  align-items: center;
+  padding: 30px;
+}
+
+.item-visual {
+  display: grid;
+  place-items: center;
+  min-height: 250px;
+  border: 4px solid #8f5a32;
+  background:
+    radial-gradient(circle at center, rgba(255, 243, 168, 0.5), transparent 58%),
+    repeating-linear-gradient(0deg, rgba(122, 74, 42, 0.2) 0 8px, transparent 8px 16px),
+    #d79558;
+}
+
+.perfume-bottle {
+  position: relative;
+  width: 118px;
+  height: 164px;
+  image-rendering: pixelated;
+}
+
+.cap,
+.neck,
+.glass,
+.shine,
+.perfume-bottle .label {
+  position: absolute;
+  display: block;
+}
+
+.cap {
+  top: 0;
+  left: 39px;
+  width: 40px;
+  height: 24px;
+  border: 5px solid #3d2830;
+  background: #dca849;
+}
+
+.neck {
+  top: 25px;
+  left: 47px;
+  width: 24px;
+  height: 22px;
+  border-inline: 5px solid #3d2830;
+  background: #f8cf78;
+}
+
+.glass {
+  inset: 44px 10px 0;
+  border: 6px solid #3d2830;
+  border-radius: 10px 10px 18px 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.58) 0 18%, transparent 18% 100%),
+    linear-gradient(180deg, #f8d27e 0%, #e78356 100%);
+}
+
+.shine {
+  top: 64px;
+  left: 32px;
+  width: 16px;
+  height: 52px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.perfume-bottle .label {
+  right: 26px;
+  bottom: 28px;
+  width: 50px;
+  padding: 5px 0;
+  border: 4px solid #3d2830;
+  background: #fff1bd;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.55rem;
+  text-align: center;
+}
+
+.pixel-shadow {
+  width: 132px;
+  height: 16px;
+  margin-top: 10px;
+  background: rgba(45, 28, 34, 0.28);
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(1.35rem, 3.5vw, 2.35rem);
+  line-height: 1.25;
+  color: #5b2d28;
+  text-shadow: 3px 3px 0 #f5bb66;
+  word-break: normal;
+}
+
+h2 {
+  margin-bottom: 14px;
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(0.8rem, 2.4vw, 1rem);
+}
+
+.subtitle {
+  margin-bottom: 24px;
+  font-size: 1.55rem;
+}
+
+.birthday-message,
+.description,
+.quest-question,
+.reward-copy p {
+  font-size: 1.4rem;
+  line-height: 1.32;
+}
+
+.game-panel {
+  margin-top: 24px;
+  padding: 22px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 18px;
+}
+
+.stats div,
+.effects {
+  border: 3px solid #9f6736;
+  background: #f8cf78;
+  padding: 12px;
+}
+
+dt,
+.effects p {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 6px 0 0;
+  font-size: 1.25rem;
+}
+
+ul {
+  margin: 8px 0 0;
+  padding-left: 22px;
+  font-size: 1.25rem;
+  line-height: 1.38;
+}
+
+.achievements {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.achievement {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.achievement p {
+  margin-bottom: 4px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+}
+
+.achievement strong {
+  font-size: 1.35rem;
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 3px solid var(--wood-dark);
+  background: var(--accent);
+  font-size: 1.5rem;
+}
+
+.code-form {
+  margin-top: 18px;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+input,
+button {
+  border: 4px solid var(--wood-dark);
+  box-shadow: 4px 4px 0 var(--panel-shadow);
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 14px;
+  color: var(--ink);
+  background: #fff4c8;
+  font: 1.4rem "Pixelify Sans", sans-serif;
+  text-transform: uppercase;
+}
+
+button {
+  cursor: pointer;
+  padding: 0 16px;
+  color: #fff8d8;
+  background: #8f4c34;
+}
+
+button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--panel-shadow);
+}
+
+.form-message {
+  min-height: 24px;
+  margin: 12px 0 0;
+  color: var(--berry);
+  font-size: 1.15rem;
+}
+
+.reward {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 22px;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 4px dashed #9f6736;
+}
+
+.ticket {
+  position: relative;
+  padding: 18px 10px;
+}
+
+.ticket-inner {
+  position: relative;
+  z-index: 1;
+  border: 4px solid #3d2830;
+  background:
+    linear-gradient(90deg, transparent 0 9px, rgba(61, 40, 48, 0.18) 9px 13px, transparent 13px),
+    #f7c776;
+  box-shadow:
+    10px 0 0 #f7c776,
+    -10px 0 0 #f7c776,
+    0 8px 0 rgba(45, 28, 34, 0.24);
+  padding: 20px 12px;
+  text-align: center;
+}
+
+.ticket-inner p,
+.ticket-inner strong,
+.ticket-inner span {
+  display: block;
+}
+
+.ticket-inner p {
+  margin-bottom: 8px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.55rem;
+}
+
+.ticket-inner strong {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.ticket-inner span {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.smoke {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: rgba(255, 241, 189, 0.72);
+  box-shadow: 0 0 12px rgba(255, 241, 189, 0.5);
+  animation: smoke 3.4s ease-in-out infinite;
+}
+
+.smoke-1 {
+  top: 4px;
+  left: 40px;
+}
+
+.smoke-2 {
+  top: -8px;
+  left: 95px;
+  animation-delay: -1s;
+}
+
+.smoke-3 {
+  top: 2px;
+  right: 36px;
+  animation-delay: -2s;
+}
+
+@keyframes load {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes float {
+  50% {
+    transform: translate(14px, -18px);
+  }
+}
+
+@keyframes smoke {
+  50% {
+    transform: translateY(-18px) scale(1.35);
+    opacity: 0.45;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100% - 20px, 540px);
+    padding-top: 18px;
+  }
+
+  .hero-grid,
+  .reward,
+  .stats,
+  .achievements {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-grid {
+    padding: 18px;
+  }
+
+  .item-visual {
+    min-height: 210px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  button {
+    min-height: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
