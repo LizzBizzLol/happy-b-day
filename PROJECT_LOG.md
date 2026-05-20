@@ -14,4 +14,4 @@
 - Added item card for `Day 1, Year 1`, birthday message, achievements, secret answer form, and hidden Steam quest reward.
 - Added original CSS pixel-style perfume bottle, ticket, smoke, fireflies, grass, and game UI panels.
 - Updated visual details: fixed grass pattern placement, replaced reward ticket with the provided PNG asset, changed achievement and charm bonus text, refined the secret question, and added more fireflies.
-- Reworked the background into softer pixel hills and grass, added cloud drift animation, and replaced the hero greeting with a level 13 gift fragrance description.
+- Reworked the background meadow to remove the triangle pattern, added subtle field animation, and changed the hero greeting into an English RPG-style gift description for the Level 13 fragrance.

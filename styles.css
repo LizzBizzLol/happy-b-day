@@ -42,15 +42,17 @@ body {
 body::before {
   position: absolute;
   z-index: 0;
-  inset: 67vh 0 0;
-  min-height: 33vh;
+  inset: 68vh 0 0;
+  min-height: 32vh;
   content: "";
   background:
-    linear-gradient(180deg, rgba(255, 231, 145, 0.18) 0 2px, transparent 2px 100%) 0 18px / 100% 58px,
-    radial-gradient(circle at 20px 28px, rgba(255, 231, 145, 0.2) 0 3px, transparent 4px) 0 0 / 128px 76px,
-    linear-gradient(90deg, rgba(31, 102, 58, 0.28) 0 8px, transparent 8px 70px) 0 0 / 70px 48px,
-    linear-gradient(90deg, rgba(255, 218, 110, 0.1) 0 6px, transparent 6px 96px) 32px 24px / 96px 72px,
-    linear-gradient(180deg, #4f9a56 0%, #347a47 54%, #28633d 100%);
+    radial-gradient(ellipse 520px 120px at 18% 12%, rgba(120, 178, 82, 0.58) 0 48%, transparent 50%),
+    radial-gradient(ellipse 620px 130px at 72% 4%, rgba(88, 151, 72, 0.48) 0 46%, transparent 48%),
+    radial-gradient(circle at 14% 38%, rgba(255, 236, 145, 0.24) 0 3px, transparent 4px),
+    radial-gradient(circle at 42% 58%, rgba(255, 236, 145, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 79% 44%, rgba(255, 236, 145, 0.2) 0 3px, transparent 4px),
+    linear-gradient(90deg, rgba(255, 222, 118, 0.18) 0 10px, transparent 10px 90px) 0 62px / 140px 100%,
+    linear-gradient(180deg, #579d59 0%, #3f884d 38%, #2f7446 100%);
   image-rendering: pixelated;
   pointer-events: none;
 }
@@ -58,17 +60,19 @@ body::before {
 body::after {
   position: absolute;
   z-index: 0;
-  inset: 61vh 0 auto;
-  height: 96px;
+  inset: 62vh 0 auto;
+  height: 128px;
   content: "";
   background:
-    radial-gradient(ellipse 180px 64px at 12% 80%, #367a47 0 58%, transparent 59%),
-    radial-gradient(ellipse 240px 74px at 38% 86%, #2f6f43 0 60%, transparent 61%),
-    radial-gradient(ellipse 210px 68px at 68% 82%, #3d8550 0 59%, transparent 60%),
-    radial-gradient(ellipse 170px 58px at 91% 88%, #2d673f 0 60%, transparent 61%);
+    radial-gradient(ellipse 220px 78px at 9% 86%, #356f43 0 58%, transparent 59%),
+    radial-gradient(ellipse 320px 92px at 34% 92%, #2f6a42 0 60%, transparent 61%),
+    radial-gradient(ellipse 280px 86px at 67% 88%, #3d8050 0 59%, transparent 60%),
+    radial-gradient(ellipse 230px 72px at 94% 90%, #2c633d 0 60%, transparent 61%),
+    linear-gradient(180deg, transparent 0 42%, rgba(42, 99, 58, 0.45) 43% 100%);
   image-rendering: pixelated;
-  opacity: 0.82;
+  opacity: 0.9;
   pointer-events: none;
+  animation: meadow-breathe 7s ease-in-out infinite;
 }
 
 .sky {
@@ -545,6 +549,13 @@ button:active {
 @keyframes drift-small {
   50% {
     transform: translateX(-28px) scale(0.75);
+  }
+}
+
+@keyframes meadow-breathe {
+  50% {
+    transform: translateY(6px);
+    opacity: 0.78;
   }
 }
 
