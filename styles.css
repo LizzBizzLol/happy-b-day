@@ -28,6 +28,7 @@ html {
 }
 
 body {
+  position: relative;
   min-height: 100vh;
   margin: 0;
   color: var(--ink);
@@ -39,9 +40,10 @@ body {
 }
 
 body::before {
-  position: fixed;
-  inset: auto 0 0;
-  height: 28vh;
+  position: absolute;
+  z-index: 0;
+  inset: 72vh 0 0;
+  min-height: 28vh;
   content: "";
   background:
     linear-gradient(45deg, rgba(36, 84, 56, 0.55) 25%, transparent 25%) 0 0 / 18px 18px,
@@ -113,6 +115,51 @@ body::before {
   top: 36%;
   left: 72%;
   animation-delay: -3.2s;
+}
+
+.firefly-5 {
+  top: 28%;
+  left: 44%;
+  width: 5px;
+  height: 5px;
+  animation-delay: -0.7s;
+  animation-duration: 4.4s;
+}
+
+.firefly-6 {
+  top: 58%;
+  right: 8%;
+  width: 6px;
+  height: 6px;
+  animation-delay: -2.8s;
+  animation-duration: 6.2s;
+}
+
+.firefly-7 {
+  top: 72%;
+  left: 24%;
+  width: 5px;
+  height: 5px;
+  animation-delay: -4.1s;
+  animation-duration: 5.7s;
+}
+
+.firefly-8 {
+  top: 16%;
+  right: 34%;
+  width: 8px;
+  height: 8px;
+  animation-delay: -1.9s;
+  animation-duration: 6.8s;
+}
+
+.firefly-9 {
+  top: 49%;
+  left: 7%;
+  width: 6px;
+  height: 6px;
+  animation-delay: -5.2s;
+  animation-duration: 5.2s;
 }
 
 .page-shell {
@@ -444,72 +491,16 @@ button:active {
 }
 
 .ticket {
-  position: relative;
-  padding: 18px 10px;
+  display: grid;
+  place-items: center;
 }
 
-.ticket-inner {
-  position: relative;
-  z-index: 1;
-  border: 4px solid #3d2830;
-  background:
-    linear-gradient(90deg, transparent 0 9px, rgba(61, 40, 48, 0.18) 9px 13px, transparent 13px),
-    #f7c776;
-  box-shadow:
-    10px 0 0 #f7c776,
-    -10px 0 0 #f7c776,
-    0 8px 0 rgba(45, 28, 34, 0.24);
-  padding: 20px 12px;
-  text-align: center;
-}
-
-.ticket-inner p,
-.ticket-inner strong,
-.ticket-inner span {
+.ticket img {
   display: block;
-}
-
-.ticket-inner p {
-  margin-bottom: 8px;
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.55rem;
-}
-
-.ticket-inner strong {
-  font-family: "Press Start 2P", monospace;
-  font-size: 0.72rem;
-  line-height: 1.5;
-}
-
-.ticket-inner span {
-  margin-top: 10px;
-  font-size: 1rem;
-}
-
-.smoke {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  background: rgba(255, 241, 189, 0.72);
-  box-shadow: 0 0 12px rgba(255, 241, 189, 0.5);
-  animation: smoke 3.4s ease-in-out infinite;
-}
-
-.smoke-1 {
-  top: 4px;
-  left: 40px;
-}
-
-.smoke-2 {
-  top: -8px;
-  left: 95px;
-  animation-delay: -1s;
-}
-
-.smoke-3 {
-  top: 2px;
-  right: 36px;
-  animation-delay: -2s;
+  width: min(100%, 240px);
+  height: auto;
+  filter: drop-shadow(8px 8px 0 rgba(45, 28, 34, 0.24));
+  image-rendering: pixelated;
 }
 
 @keyframes load {
@@ -521,13 +512,6 @@ button:active {
 @keyframes float {
   50% {
     transform: translate(14px, -18px);
-  }
-}
-
-@keyframes smoke {
-  50% {
-    transform: translateY(-18px) scale(1.35);
-    opacity: 0.45;
   }
 }
 
@@ -550,6 +534,10 @@ button:active {
 
   .item-visual {
     min-height: 210px;
+  }
+
+  .ticket img {
+    width: min(100%, 300px);
   }
 
   .input-row {
